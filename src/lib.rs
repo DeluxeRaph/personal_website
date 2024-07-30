@@ -16,6 +16,11 @@ pub fn app() -> Html {
     log!(serde_json::to_string_pretty(&my_object).unwrap());
     log!("My name is ", name);
     html! {
-        <h1>{"Hello World !!!"}</h1>
+       <>
+       <head></head>
+        <body>
+            <h1><u>{"Raphael Nembhard Personal Website"}</u></h1>
+        </body>
+       </>
     }
 }
