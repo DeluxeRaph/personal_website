@@ -3,21 +3,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello world in yew</title>
     <style>
-        html, body {
-
+        html, body {background-color: lightgray; }
+        .my_title {text-align:center}
+        .my_about {
+            text-align:center;
+            font-size: 16pt;
+            font-family: "Times New Roman", Times, serif;
+            margin: 50px;
         }
-        h1 {text-align:center}
+        p {text-align:center}
+        .my_img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+        footer {
+            position: absolute; 
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+        }
     </style>
+    
 
-<link rel="preload" href="/personal_website-590e3614ea4fa074_bg.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" integrity="sha384-zroy0mOdGVaIlQQyS0TO4LYvIhkz104oek9qtat6q3dEIEWaYWZMRB5w8Ci9pszX">
-<link rel="modulepreload" href="/personal_website-590e3614ea4fa074.js" crossorigin="anonymous" integrity="sha384-zWpAzO-j0j2i4fSvdYGoMb0kCx6-JCzVEk9xIe6Jcp4Prx8psXyQn_adYTTqQn7p"></head>
+<link rel="preload" href="/personal_website-7eb421ac55a48850_bg.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" integrity="sha384-alj6o3-nhUxdHoP2UZkkcibaEgPcdgF8Ae8UxvhKwETqHudcQurNJkTmzRQpb-e4">
+<link rel="modulepreload" href="/personal_website-7eb421ac55a48850.js" crossorigin="anonymous" integrity="sha384-1qKOtbA0-t-MWl7DWjomjqZVvXKE8Vx7YSILRnu-iLscpFSIlVOe4FYnMn7sovBQ"></head>
 <body>
     
 
 
 <script type="module">
-import init, * as bindings from '/personal_website-590e3614ea4fa074.js';
-init('/personal_website-590e3614ea4fa074_bg.wasm');
+import init, * as bindings from '/personal_website-7eb421ac55a48850.js';
+init('/personal_website-7eb421ac55a48850_bg.wasm');
 window.wasmBindings = bindings;
 
 </script><script>"use strict";
