@@ -1,11 +1,8 @@
 [package]
 name = "personal_website"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
-# this is the development version of Yew
-yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
-gloo = "0.11.0"
-serde = "1.0.204"
-serde_json = "1.0.120"
+axum = "0.8"
+tokio = { version = "1", features = ["full"] }
