@@ -1,2 +1,4 @@
 /target
+/node_modules
+/artifacts
 LOCAL_PRODUCTION_NOTES.md
