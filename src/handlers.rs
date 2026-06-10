@@ -14,6 +14,10 @@ pub(crate) async fn home() -> Html<String> {
     Html(views::layout("Raphael Nembhard", views::home()))
 }
 
+pub(crate) async fn shop() -> Html<String> {
+    Html(views::layout("0xFarmer Shop", views::shop()))
+}
+
 pub(crate) async fn blog_index() -> Html<String> {
     Html(views::layout(
         "Blog - Raphael Nembhard",

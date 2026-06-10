@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "cargo run --release",
+    "pm2:start": "npx pm2 start ecosystem.config.cjs",
+    "pm2:restart": "npx pm2 restart 0xfarmer-site",
+    "pm2:logs": "npx pm2 logs 0xfarmer-site",
+    "test": "node --check scripts/compile-contract.mjs && node --check scripts/deploy-farmer-shop.mjs && node --check scripts/mint-farmer-token.mjs",
+    "contract:compile": "node scripts/compile-contract.mjs",
+    "contract:deploy:base": "node scripts/deploy-farmer-shop.mjs",
+    "contract:mint:base": "node scripts/mint-farmer-token.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ethers": "^6.16.0",
+    "solc": "^0.8.31"
+  }
+}

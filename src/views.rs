@@ -19,6 +19,7 @@ pub(crate) fn home() -> String {
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#work">Work</a>
+            <a href="/shop">Shop</a>
             <a href="/blog">Blog</a>
             <a href="{GITHUB_URL}">GitHub</a>
             <a href="{X_URL}">X</a>
@@ -41,10 +42,10 @@ pub(crate) fn home() -> String {
                 <div>
                   <span class="tiny-label">Current file</span>
                   <h2>deluxe_agent.exe</h2>
-                  <p>A coming-soon Cloudflare agent that uses the deluxe-skills repo as its main skill library, with x402-style paid access for people who want to run it.</p>
+                  <p>Live beta: a paid-agent storefront for deluxe-skills. The shop exposes an x402-style paid mint route now, while the Cloudflare-hosted agent runtime is still being built in public.</p>
                   <div class="button-row compact-row">
+                    <a class="button-95" href="/shop">Open Live Beta</a>
                     <a class="button-95" href="https://github.com/DeluxeRaph/deluxe-skills">View Skills Repo</a>
-                    <span class="button-95 is-disabled">Payment Gate Pending</span>
                   </div>
                 </div>
                 <div>
@@ -52,8 +53,8 @@ pub(crate) fn home() -> String {
                   <div class="meter" aria-label="Agent launch readiness"><span></span></div>
                 </div>
                 <div class="badge-row">
-                  <span class="badge">Cloudflare</span>
-                  <span class="badge">x402</span>
+                  <span class="badge">Live beta</span>
+                  <span class="badge">x402-style access</span>
                   <span class="badge">Paid Agent</span>
                   <span class="badge">deluxe-skills</span>
                 </div>
@@ -257,6 +258,88 @@ pub(crate) fn home() -> String {
     "##
 }
 
+pub(crate) fn shop() -> &'static str {
+    r#"
+        <section class="window shop-window" id="agent-shop" data-window-title="AGENT_SHOP.EXE">
+          <div class="title-bar">
+            <span>AGENT_SHOP.EXE</span>
+            <div class="window-actions" aria-hidden="true">
+              <button class="window-button" type="button" data-window-action="minimize">_</button>
+              <button class="window-button is-disabled" type="button" disabled aria-label="Maximize shop">□</button>
+              <button class="window-button is-disabled" type="button" disabled aria-label="Close shop">×</button>
+            </div>
+          </div>
+          <nav class="menu-bar" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/shop">Shop</a>
+            <a href="/blog">Blog</a>
+            <a href="https://github.com/DeluxeRaph/deluxe-skills">Skills Repo</a>
+            <a href="https://github.com/DeluxeRaph/personal_website">Source</a>
+          </nav>
+          <div class="window-body shop-hero-body">
+            <div class="shop-grid">
+              <article class="sunken hero-copy shop-copy">
+                <span class="kicker">Live beta · x402-style paid access</span>
+                <h1>0xFarmer Agent Shop</h1>
+                <p class="lede">A public beta storefront for paid agent experiments. Today it demonstrates an x402-style $1 USDC route on Base for minting an 8-bit 0xFarmer keepsake; next it will gate access to a Cloudflare-hosted agent powered by the <strong>deluxe-skills</strong> library.</p>
+                <p class="beta-note"><strong>Active development:</strong> this is real infrastructure, but it is still a live beta. Expect rough edges, small changes, and visible build progress while the paid agent flow is finalized.</p>
+                <div class="badge-row">
+                  <span class="badge">$1 USDC</span>
+                  <span class="badge">Base mainnet</span>
+                  <span class="badge">x402 v2 challenge</span>
+                  <span class="badge">Live beta</span>
+                </div>
+              </article>
+              <aside class="sunken shop-counter">
+                <div class="pixel-shop" aria-hidden="true">
+                  <div class="lantern left"></div>
+                  <div class="lantern right"></div>
+                  <div class="awning"></div>
+                  <div class="sign">0xFARMER 屋</div>
+                  <div class="door"></div>
+                  <div class="window-glow"></div>
+                </div>
+                <form id="mint-form" class="mint-form">
+                  <label>Wallet address
+                    <input class="field-95" id="mint-wallet" name="wallet" placeholder="0x..." autocomplete="off" required>
+                  </label>
+                  <label>Image prompt
+                    <input class="field-95" id="mint-prompt" name="prompt" value="farmer cat tending a tiny lantern shop" maxlength="80">
+                  </label>
+                  <button class="button-95 shop-primary" type="submit">Start $1 x402 mint</button>
+                  <p class="form-help">Submitting from the browser requests the payment challenge and shows the AgentCash command to complete it.</p>
+                </form>
+              </aside>
+            </div>
+          </div>
+          <div class="window-body shop-details-body">
+            <div class="shop-panel-grid">
+              <article class="card x402-card">
+                <span class="tiny-label">How x402 works here</span>
+                <h3>Pay only when your client retries with proof</h3>
+                <ol class="step-list">
+                  <li>The mint API returns <code>402 Payment Required</code> with Base USDC payment requirements.</li>
+                  <li>An x402-capable client such as AgentCash pays and retries with the payment header.</li>
+                  <li>The server settles the payment, then generates metadata and records the mint.</li>
+                </ol>
+                <div class="command-card">
+                  <span>AgentCash beta command</span>
+                  <code>npx agentcash@latest fetch https://0xfarmer.com/api/shop/mint -m POST -b '{"wallet":"0x...","prompt":"farmer cat"}'</code>
+                </div>
+              </article>
+              <article class="card minted-card">
+                <span class="tiny-label">Latest mint</span>
+                <div id="mint-result" class="mint-result">No local mints yet. Start a paid mint to see the result here.</div>
+              </article>
+            </div>
+          </div>
+          <div class="status-bar">
+            <div class="status-cell" id="shop-status">Loading shop status…</div>
+            <div class="status-cell">live beta</div>
+          </div>
+        </section>
+    "#
+}
 pub(crate) fn blog_index() -> String {
     format!(
         r#"
@@ -271,6 +354,7 @@ pub(crate) fn blog_index() -> String {
           </div>
           <nav class="menu-bar" aria-label="Primary">
             <a href="/">Home</a>
+            <a href="/shop">Shop</a>
             <a href="/blog">Blog</a>
             <a href="{GITHUB_URL}">GitHub</a>
             <a href="{X_URL}">X</a>
@@ -396,6 +480,10 @@ pub(crate) fn layout(title: &str, content: impl AsRef<str>) -> String {
             <a class="shortcut" href="/">
               <span class="shortcut-icon">⌂</span>
               <span>Home</span>
+            </a>
+            <a class="shortcut" href="/shop">
+              <span class="shortcut-icon">店</span>
+              <span>Shop</span>
             </a>
             <a class="shortcut" href="/blog">
               <span class="shortcut-icon">✎</span>
