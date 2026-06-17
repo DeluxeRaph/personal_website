@@ -196,18 +196,18 @@ pub(crate) fn home() -> String {
             <div class="section-grid">
               <article class="card">
                 <span class="tiny-label">Current</span>
+                <h3>Alma Labs</h3>
+                <p>Building smart contracts, SDKs, APIs, and CI/CD workflows for DeFi infrastructure, including a Solana to Base bridge across Rust and Solidity.</p>
+              </article>
+              <article class="card">
+                <span class="tiny-label">DeFi Builder</span>
                 <h3>Flayer Labs</h3>
-                <p>Public profile lists Flayer Labs as Raphael's current company. Add the exact title, dates, and strongest shipped work here.</p>
+                <p>Built experimental DeFi products using Uniswap, including work around NFT fractionalization, rare NFT liquidity, and tokenized trading flows.</p>
               </article>
               <article class="card">
-                <span class="tiny-label">Builder</span>
-                <h3>Independent Projects</h3>
-                <p>Protocol experiments, agent tooling, hardware ideas, and SDK work that show a bias toward building and testing new technology.</p>
-              </article>
-              <article class="card">
-                <span class="tiny-label">Education</span>
+                <span class="tiny-label">DevRel</span>
                 <h3>Atrium Academy</h3>
-                <p>Completed in 2024, according to the public LinkedIn profile. This can become a cleaner education/training entry once details are final.</p>
+                <p>Helped developers learn DeFi and build with Uniswap v4, turning complex protocol ideas into clearer examples, education, and hands-on support.</p>
               </article>
             </div>
           </div>
@@ -280,6 +280,33 @@ pub(crate) fn blog_not_found() -> &'static str {
               <h1>Post not found</h1>
               <p>That blog file is not on this desktop yet.</p>
               <a class="button-95" href="/blog">Back to Blog</a>
+            </div>
+          </div>
+        </section>
+    "#
+}
+
+pub(crate) fn not_found() -> &'static str {
+    r#"
+        <section class="window">
+          <div class="title-bar">
+            <span>404.TXT</span>
+            <span class="window-button">×</span>
+          </div>
+          <nav class="menu-bar" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="https://github.com/DeluxeRaph">GitHub</a>
+          </nav>
+          <div class="window-body">
+            <div class="sunken">
+              <span class="kicker">Missing shortcut</span>
+              <h1>Page not found</h1>
+              <p class="lede">That file is not on this desktop yet.</p>
+              <div class="button-row">
+                <a class="button-95" href="/">Back to Home</a>
+                <a class="button-95" href="/blog">Open Blog</a>
+              </div>
             </div>
           </div>
         </section>
